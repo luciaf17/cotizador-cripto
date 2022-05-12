@@ -1,14 +1,13 @@
 import React, { useState} from "react";
 import useGetData from "./hooks/useGetData";
+import {BallTriangle} from "react-loader-spinner";
 
 const Prices = () => {
   const [data, loading, error] = useGetData(`https://api.coincap.io/v2/assets/`);
   const [title, setTitle] = useState('')
   
   const handleOnChange = (e) => {
-    //console.log(e.target.value);
     setTitle(e.target.value);
-    //console.log(title);
   }
 
 
@@ -16,7 +15,7 @@ const Prices = () => {
     <>
       <h1>Cotización en tiempo real</h1> <hr />
       {loading ? (
-        <h1>Cargando...</h1>
+        <BallTriangle color="red" height={100} width={100} />
       ): error ? (
         <h3>Error: {error.message}</h3>
       ): (
