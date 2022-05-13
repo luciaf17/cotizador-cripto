@@ -19,13 +19,8 @@ const Prices = () => {
         <h3>Error: {error.message}</h3>
       ) : (
         <>
-        <h1 className="animate__animated animate__fadeInUp">Cotización en tiempo real de las principales criptomonedas</h1> <hr />
+        <h1 className="animate__animated animate__fadeInUp"> <b>Cotización de Criptomonedas en tiempo real</b></h1> <hr />
           <Filter data={data} />
-          <div className="card-grid animate__animated animate__zoomIn">
-            {data.data.map((crypto, i) => {
-              return <PricesItem key={i} crypto={crypto} />;
-            })}
-          </div>
         </>
       )}
     </>
