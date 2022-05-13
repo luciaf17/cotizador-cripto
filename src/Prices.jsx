@@ -1,50 +1,32 @@
-import React, { useState} from "react";
+import React from "react";
+import Filter from "./Filter";
 import useGetData from "./hooks/useGetData";
-import {BallTriangle} from "react-loader-spinner";
+import PricesItem from "./PricesItem";
+import Loader from "react-js-loader";
+
+import "./styles.css";
 
 const Prices = () => {
-  const [data, loading, error] = useGetData(`https://api.coincap.io/v2/assets/`);
-  const [title, setTitle] = useState('')
-  
-  const handleOnChange = (e) => {
-    setTitle(e.target.value);
-  }
-
+  const [data, loading, error] = useGetData(
+    `https://api.coincap.io/v2/assets/`
+  );
 
   return (
     <>
-      <h1>Cotización en tiempo real</h1> <hr />
       {loading ? (
-        <BallTriangle color="red" height={100} width={100} />
-      ): error ? (
+        <Loader type="bubble-loop" bgColor={"blue"} title={"Cargando..."} color={'#94bbe9'} size={100} />
+      ) : error ? (
         <h3>Error: {error.message}</h3>
-      ): (
-        <div>
-        <div>
-          {data.data.map((crypto, i) => {
-            return (
-              <div key={i}>
-                <h2>{crypto.name}</h2>
-                <h3>{crypto.priceUsd}</h3>
-              </div>
-            );
-          })}
-        </div>
-        <div>
-          <h1>Filtrado</h1> <hr />
-          <div>
-            <input type="text" placeholder="Busca una cripto..." onChange={e => handleOnChange(e)} />
-             {data.data.filter(crypto => crypto.name === title).map((crypto, i) => {
-              return (
-                <div key={i}>
-                  <h2>{crypto.name}</h2>
-                  <h3>{crypto.priceUsd}</h3>
-                </div>
-              );
-            })} 
+      ) : (
+        <>
+        <h1 className="animate__animated animate__fadeInUp">Cotización en tiempo real de las principales criptomonedas</h1> <hr />
+          <Filter data={data} />
+          <div className="card-grid animate__animated animate__zoomIn">
+            {data.data.map((crypto, i) => {
+              return <PricesItem key={i} crypto={crypto} />;
+            })}
           </div>
-        </div>
-        </div>
+        </>
       )}
     </>
   );
