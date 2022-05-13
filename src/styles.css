@@ -1,5 +1,6 @@
 * {
   font-family:Arial, sans-serif;
+  padding: 2px;
 }
 
 body {
@@ -22,7 +23,6 @@ input {
   padding: 10px 15px;
   width: 100%;
   margin-bottom: 25px;
-  margin-bottom: 25px;
 }
 
 .card-grid {
@@ -30,8 +30,6 @@ input {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
-  padding: 0;
 }
 
 .card {
@@ -78,4 +76,17 @@ h1 {
   margin: 0;
   padding: 0;
   text-align: center;
+  text-shadow: black 0px 0px 5px;
+}
+
+.btn {
+  background-color: #94bbe9;
+  border-radius: 5px;
+  border: 1px solid rgb(97, 32, 158);
+  color: black;
+  outline: none;
+  padding: 10px 15px;
+  width: 100%;
+  margin-bottom: 25px;
+  margin-bottom: 25px;
 }
