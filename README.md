@@ -4,3 +4,4 @@ La app realiza una petición a la api de Coincap, para luego mostrar los precios
 
 Alumna: Maria Lucia Futestti.
 
+Podés ver la página desplegada en: https://luciaf17.github.io/cotizador-cripto/
