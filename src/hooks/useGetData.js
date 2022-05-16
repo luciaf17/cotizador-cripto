@@ -9,26 +9,27 @@ const useGetData = (url) => {
     });
 
     useEffect(() => {
+        const getData = async () => {
+            try {
+                const res = await axios(url);
+    
+                setState({
+                    data: res.data,
+                    error: null,
+                    loading: false,
+                });
+            } catch (error) {
+                setState({
+                    data: [],
+                    error: error,
+                    loading: false,
+                });
+            }
+        }
         getData();
     }  , [state.data]);
 
-    const getData = async () => {
-        try {
-            const res = await axios(url);
-
-            setState({
-                data: res.data,
-                error: null,
-                loading: false,
-            });
-        } catch (error) {
-            setState({
-                data: [],
-                error: error,
-                loading: false,
-            });
-        }
-    }
+    
     return [state.data, state.loading, state.error];
 }
 

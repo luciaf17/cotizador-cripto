@@ -1,10 +1,11 @@
 import React from "react";
 import Filter from "./Filter";
 import useGetData from "./hooks/useGetData";
-import PricesItem from "./PricesItem";
+import Carousel from "./Carousel";
 import Loader from "react-js-loader";
 
 import "./styles.css";
+
 
 const Prices = () => {
   const [data, loading, error] = useGetData(
@@ -20,6 +21,7 @@ const Prices = () => {
       ) : (
         <>
         <h1 className="animate__animated animate__fadeInUp"> <b>Cotización de Criptomonedas en tiempo real</b></h1> <hr />
+          <Carousel />
           <Filter data={data} />
         </>
       )}

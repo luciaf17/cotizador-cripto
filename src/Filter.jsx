@@ -11,12 +11,9 @@ const Filter = ({data}) => {
     setTitle(e.target.value);
   };
 
-
-
-
   return (
     <div>
-      <div className="filter">
+      <div >
         <input  className=" animate__animated animate__flash"
           type="text"
           placeholder="Busca una cripto..."
@@ -27,9 +24,7 @@ const Filter = ({data}) => {
           .filter((crypto) => crypto.name.toString().toLowerCase().trim().includes(title.toString().toLowerCase().trim()) || crypto.symbol.toString().toLowerCase().trim().includes(title.toString().toLowerCase().trim()))
           .map((crypto, i) => {
             return (
-                <>
                 <PricesItem key={i} crypto={crypto} />
-                </>
             );
           })
         }

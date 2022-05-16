@@ -6,6 +6,7 @@
 body {
   margin: 10px 5px 10px 5px;
   background: rgb(2, 0, 36);
+  padding: 20px;
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
@@ -21,8 +22,8 @@ input {
   color: black;
   outline: none;
   padding: 10px 15px;
-  width: 100%;
   margin-bottom: 25px;
+  width: 100%;
 }
 
 .card-grid {
@@ -89,4 +90,25 @@ h1 {
   width: 100%;
   margin-bottom: 25px;
   margin-bottom: 25px;
+}
+
+.slider {
+  padding: 5px;
+  display: flex;
+  margin-bottom: 25px;
+  margin-left: 35px;
+  margin-right: 35px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+}
+
+.recomendeds {
+  color: palegoldenrod;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-shadow: black 0px 0px 5px;
 }
