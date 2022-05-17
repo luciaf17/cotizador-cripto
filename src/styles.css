@@ -45,6 +45,8 @@ input {
   margin-bottom: 20px;
   margin-right: 20px;
   overflow: hidden;
+  width: 350px;
+  height: 250px;
 }
 
 .card h2 {
