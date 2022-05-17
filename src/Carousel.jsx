@@ -1,30 +1,19 @@
 import React from 'react'
 import Slider from "react-slick";
-import useGetData from "./hooks/useGetData";
 import PricesItem from './PricesItem';
 import Loader from "react-js-loader";
 
 
-const Carousel = () => {
-
-    const [ data, loading ] = useGetData(
-        `https://api.coincap.io/v2/assets/?limit=10`
-    );
+const Carousel = ({data, loading}) => {
 
         var settings = {
-          className: "center",
-          centerMode: true,
           dots: true,
           infinite: true,
-          slidesToShow: 4,
-          slidesToScroll: 4,
-          autoplay: true,
-          speed: 3000,
-          autoplaySpeed: 3000,
-          cssEase: "linear",
-          pauseOnHover: true,
-          adaptiveHeight : true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
           accesibility : true,
+          adaptiveHeight: true,
+
             responsive: [
                 {
                     breakpoint: 1024,
@@ -60,7 +49,8 @@ const Carousel = () => {
                 <>
                 <h1 className="recomendeds">Las 10 criptos recomendadas</h1>
                 <Slider {...settings} className="slider">
-                {data.data.map((crypto, i) => {
+                {
+                data.data.slice(0,10).map((crypto, i) => {
                     return (
                         <>
                         <PricesItem key={i} crypto={crypto} />

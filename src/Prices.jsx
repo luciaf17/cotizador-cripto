@@ -21,7 +21,7 @@ const Prices = () => {
       ) : (
         <>
         <h1 className="animate__animated animate__fadeInUp"> <b>Cotización de Criptomonedas en tiempo real</b></h1> <hr />
-          <Carousel />
+          <Carousel data={data} loading={loading} />
           <Filter data={data} />
         </>
       )}
